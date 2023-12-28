@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Custom Style Options</title>
+    <script src="options.js" async></script>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <div id="list-view">
+      <template id="item">
+        <div class="item">
+          <div class="url"></div>
+          <div class="name"></div>
+          <button class="edit">✏️</button>
+          <button class="delete">🗑️</button>
+        </div>
+      </template>
+    </div>
+    <button class="new">New</button>
+    <div id="editor-view">
+      <form id="editor">
+        <span class="domain-label label">Domain: </span><input name="domain" placeholder="https://www.example.com" pattern="https?://[A-Za-z0-9-]+\.[A-Za-z0-9-.]+">
+        <span class="path-label label">Path: </span><input name="path" placeholder="/url-prefix" pattern="/.*">
+        <span class="name-label label">Name: </span><input name="name" placeholder="Name of script">
+        <span class="script-label label">Script:</span>
+        <textarea name="script" placeholder="/* CSS stylesheet to inject */"></textarea>
+        <div class="buttons">
+          <input type="submit" class="save" value="Save">
+          <button class="cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

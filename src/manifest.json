@@ -1,0 +1,23 @@
+{
+  "name": "Custom Styles",
+  "version": "0.0.1",
+  "description": "Inserts per-site stylesheets",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["styler.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

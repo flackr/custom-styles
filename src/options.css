@@ -1,0 +1,91 @@
+
+#editor-view {
+  transition: allow-discrete display 200ms, opacity 200ms, transform 200ms;
+  display: none;
+  opacity: 0;
+  transform: translateY(-30px);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+  padding: 8px;
+  background: white;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.edit #editor-view {
+  display: block;
+  opacity: 1;
+  transform: none;
+  @starting-style {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+#list-view > .item {
+  background: #f5f5f5;
+  display: flex;
+}
+
+#list-view > .item > .url {
+  padding-right: 8px;
+}
+
+.item > .name {
+  flex: 1;
+}
+
+#list-view > .item:hover {
+  background: #ddd;
+}
+
+#editor {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "domain-label domain"
+    "path-label   path"
+    "name-label   name"
+    "script-label script-label"
+    "script       script"
+    "buttons      buttons";
+  grid-template-rows: auto auto auto auto 1fr auto;
+  grid-template-columns: auto 1fr;
+}
+
+input:invalid {
+  background: #fee;
+}
+.label {
+  white-space: nowrap;
+}
+.domain-label {
+  grid-area: domain-label;
+}
+[name=domain] {
+  grid-area: domain;
+}
+.path-label {
+  grid-area: path-label;
+}
+[name=path] {
+  grid-area: path;
+}
+.name-label {
+  grid-area: name-label;
+}
+[name=name] {
+  grid-area: name;
+}
+.script-label {
+  grid-area: script-label;
+}
+[name=script] {
+  grid-area: script;
+}
+.buttons {
+  grid-area: buttons;
+}
