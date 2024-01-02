@@ -47,13 +47,14 @@ function update() {
       node.querySelector('.delete').addEventListener('click', (evt) => {
         evt.preventDefault();
         list.splice(list.indexOf(script), 1);
-        if (list.empty) {
+        if (list.length == 0) {
           delete data.sync[url];
-          chrome.storage.sync.remove(url);
+          chrome.storage.sync.remove(url, update);
         } else {
-          chrome.storage.sync.set({url: list});
+          let obj = {};
+          obj[url] = list;
+          chrome.storage.sync.set(obj, update);
         }
-        node.remove();
       });
       listNode.appendChild(node);
     }
